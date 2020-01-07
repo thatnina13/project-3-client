@@ -33,11 +33,13 @@ const onDeleteParty = event => {
 }
 
 const onUpdateParty = event => {
+  event.preventDefault()
   const form = event.target
   // console.log('in events.js form is', form)
+  const partyId = $(event.target).data('id')
   const formData = getFormFields(form)
-  console.log(formData)
-  api.updateParty(formData)
+  console.log(formData, partyId)
+  api.updateParty(formData, partyId)
     .then(ui.updatePartySuccess)
     .catch(ui.updatePartyFailure)
 }
@@ -45,7 +47,7 @@ const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
   $('#get-party').on('click', onGetParty)
   $('.content').on('click', '.delete', onDeleteParty)
-  $('.content').on('submit', '.update-sleep', onUpdateParty)
+  $('.content').on('submit', '.update-party', onUpdateParty)
 }
 
 module.exports = {

@@ -29,7 +29,8 @@ const deleteParty = partyId => {
     }
   })
 }
-const updateParty = (partyId, formData) => {
+
+const updateParty = (formData, partyId) => {
   return $.ajax({
     url: config.apiUrl + '/party/' + partyId,
     method: 'PATCH',
@@ -39,6 +40,7 @@ const updateParty = (partyId, formData) => {
     data: formData
   })
 }
+
 module.exports = {
   getParty,
   createParty,
