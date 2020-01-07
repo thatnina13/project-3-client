@@ -15,16 +15,18 @@ const onCreateParty = event => {
 
 const onGetParty = event => {
   event.preventDefault()
-  api.getParties()
+  api.getParty()
     .then(ui.getPartySuccess)
     .catch(ui.getPartyFailure)
 }
 
 const onDeleteParty = event => {
   event.preventDefault()
-  api.deleteParty()
+  const partyId = $(event.target).data('id')
+  console.log(partyId)
+  api.deleteParty(partyId)
     .then(ui.deletePartySuccess)
-    .cath(ui.deletePartyFailure)
+    .catch(ui.deletePartyFailure)
 }
 
 const onUpdateParty = event => {
