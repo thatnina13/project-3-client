@@ -40,58 +40,58 @@ const signOut = () => {
   })
 }
 
-const createTask = formData => {
-  // console.log('in api.js formData is ', formData)
-  return $.ajax({
-    url: config.apiUrl + '/tasks',
-    method: 'POST',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    data: formData
-  })
-}
-
-const showTasks = () => {
-  return $.ajax({
-    url: config.apiUrl + '/tasks',
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    }
-  })
-}
-
-const deleteTask = taskId => {
-  return $.ajax({
-    url: config.apiUrl + '/tasks/' + taskId,
-    method: 'DELETE',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    }
-  })
-}
-
-const submitUpdatedTask = (taskId, formData) => {
-  // console.log('update task taskId is', taskId)
-  // console.log('update task formData is', formData)
-  return $.ajax({
-    url: config.apiUrl + '/tasks/' + taskId,
-    method: 'PATCH',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    data: formData
-  })
-}
+// const createTask = formData => {
+//   // console.log('in api.js formData is ', formData)
+//   return $.ajax({
+//     url: config.apiUrl + '/tasks',
+//     method: 'POST',
+//     headers: {
+//       Authorization: `Token token=${store.user.token}`
+//     },
+//     data: formData
+//   })
+// }
+//
+// const showTasks = () => {
+//   return $.ajax({
+//     url: config.apiUrl + '/tasks',
+//     method: 'GET',
+//     headers: {
+//       Authorization: `Token token=${store.user.token}`
+//     }
+//   })
+// }
+//
+// const deleteTask = taskId => {
+//   return $.ajax({
+//     url: config.apiUrl + '/tasks/' + taskId,
+//     method: 'DELETE',
+//     headers: {
+//       Authorization: `Token token=${store.user.token}`
+//     }
+//   })
+// }
+//
+// const submitUpdatedTask = (taskId, formData) => {
+//   // console.log('update task taskId is', taskId)
+//   // console.log('update task formData is', formData)
+//   return $.ajax({
+//     url: config.apiUrl + '/tasks/' + taskId,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: `Token token=${store.user.token}`
+//     },
+//     data: formData
+//   })
+// }
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut,
-  createTask,
-  showTasks,
-  deleteTask,
-  submitUpdatedTask
+  signOut
+  // createTask,
+  // showTasks,
+  // deleteTask,
+  // submitUpdatedTask
 }
