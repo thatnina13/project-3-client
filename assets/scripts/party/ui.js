@@ -3,8 +3,8 @@
 const getPartyTemplate = require('../templates/party-listing.handlebars')
 
 const getPartySuccess = (data) => {
-//  console.log('get party success is working!')
-  // console.log('data is:', data)
+  console.log('get party success is working!')
+  console.log('data is:', data)
   // const showPartyHtml = getPartyTemplate({ party: data.party })
   if (data.party.length !== 0) {
     const showPartyHtml = getPartyTemplate({ party: data.party })
@@ -21,7 +21,7 @@ const getPartySuccess = (data) => {
   }
 }
 
-const createPartySuccess = () => {
+const createPartySuccess = (data) => {
   $('.user-message').text('you logged your party')
   $('form').trigger('reset')
 }

@@ -25,7 +25,10 @@ const onDeleteParty = event => {
   const partyId = $(event.target).data('id')
   console.log(partyId)
   api.deleteParty(partyId)
-    .then(ui.deletePartySuccess)
+    .then(function () {
+      onGetParty(event)
+    })
+    .then($('.user-message').text('You deleted the party'))
     .catch(ui.deletePartyFailure)
 }
 
