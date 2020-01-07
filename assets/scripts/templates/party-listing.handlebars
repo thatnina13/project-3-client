@@ -1,5 +1,9 @@
 {{#each party as |party|}}
-  <section data-id="{{party.id}}" class="party-log" >
+  <section data-id="{{party._id}}" class="party-log" >
+    <h6> ID: </h6>
+    <h4>
+      {{party._id}}
+    </h4>
     <h6>Date:</h6>
     <h4>
       {{party.date}}
@@ -15,8 +19,8 @@
 
 
 
-    <btn class= "btn btn-danger delete" data-id="{{party.id}}"> delete </btn>
-    <form class="party-sleep" data-id="{{party.id}}">
+    <btn class= "btn btn-danger delete" data-id="{{party._id}}"> delete </btn>
+    <form class="party-sleep" data-id="{{party._id}}">
         <input type="date" name="party[date]" placeholder="date" required>
         <input type="text" name="party[title]" placeholder="title" required>
         <input type="text" name="party[details]" placeholder="details" required>
