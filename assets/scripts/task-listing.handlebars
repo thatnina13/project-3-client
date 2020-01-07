@@ -1,0 +1,41 @@
+{{#each tasks as |task|}}
+  <section data-id="{{task.id}}" class="task">
+    <h6>Title:</h6>
+      <p class="task-info">
+        {{#if task.title}}
+          {{task.title}}
+        {{else}}
+          No title provided
+        {{/if}}
+      </p>
+      <form class="update-task" data-id="{{task.id}}">
+        <input placeholder="Update Title" name="task[title]" type="text">
+        <button class="btn btn-primary submit" data-id="{{task.id}}">Submit changes</button>
+      </form>
+    <h6>Description:</h6>
+      <p class="task-info">
+        {{#if task.description}}
+          {{task.description}}
+        {{else}}
+          No description provided.
+        {{/if}}
+      </p>
+      <form class="update-task" data-id="{{task.id}}">
+        <input placeholder="Update Description" name="task[description]" type="text">
+        <button class="btn btn-primary submit" data-id="{{task.id}}">Submit changes</button>
+      </form>
+    <h6>Deadline:</h6>
+      <p class="task-info">
+        {{#if task.deadline}}
+          {{task.deadline}}
+        {{else}}
+          No deadline provided.
+        {{/if}}
+      </p>
+      <form class="update-task" data-id="{{task.id}}">
+        <input placeholder="Update Deadline" name="task[deadline]" type="date">
+        <button class="btn btn-primary submit" data-id="{{task.id}}">Submit changes</button>
+      </form>
+    <button class="btn btn-danger delete" data-id="{{task.id}}">Delete task</button>
+  </section>
+  {{/each}}

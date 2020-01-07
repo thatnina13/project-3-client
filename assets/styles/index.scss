@@ -1,1 +1,69 @@
 @import '~bootstrap/scss/bootstrap';
+
+.task {
+  height: auto;
+  width: auto;
+  padding: 10px;
+  border-color: black;
+  border-style: inset;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  // margin-left: 200px;
+  // margin-right: 200px;
+  margin: 20px auto;
+}
+
+.status {
+  height: 50px;
+}
+
+.auth {
+  text-align: center;
+  padding: 10px;
+}
+
+h6 {
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.before-auth {
+  padding: 30px;
+  padding-bottom: 30px;
+  border-color: black;
+  border-style: inset;
+  // margin-right: 400px;
+  // margin-left: 400px;
+  margin: auto;
+}
+
+.after-auth {
+  padding: 30px;
+  padding-bottom: 30px;
+  border-color: black;
+  border-style: inset;
+  // margin-right: 400px;
+  // margin-left: 400px;
+  margin: auto;
+}
+
+.task-list {
+  padding: 10px;
+  border-color: black;
+  border-style: inset;
+  // margin-right: 300px;
+  // margin-left: 300px;
+  // margin-top: 20px;
+  // margin-bottom: 20px;
+  margin: 20px auto;
+}
+
+.btn {
+  margin: 20px;
+}
+
+.delete {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
