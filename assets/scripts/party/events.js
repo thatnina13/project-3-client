@@ -1,6 +1,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
 
 const onCreateParty = event => {
   event.preventDefault()
@@ -16,8 +17,17 @@ const onCreateParty = event => {
 const onGetParty = event => {
   event.preventDefault()
   api.getParty()
-    .then(ui.getMyPartySuccess)
+    .then(ui.getPartySuccess)
     .catch(ui.getPartyFailure)
+}
+
+const onGetMyParty = event => {
+  event.preventDefault()
+  const userId = store.user._id
+  console.log(userId)
+  api.getMyParty(userId)
+    .then(ui.getMyPartySuccess)
+    .catch(ui.failure)
 }
 
 const onDeleteParty = event => {
@@ -25,7 +35,7 @@ const onDeleteParty = event => {
   const partyId = $(event.target).data('id')
   console.log(partyId)
   api.deleteParty(partyId)
-    .then(function (formData) {
+    .then(function () {
       onGetParty(event)
     })
     .then($('.user-message').text('You deleted the party'))
@@ -50,6 +60,7 @@ const onUpdateParty = event => {
 const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
   $('#get-party').on('click', onGetParty)
+  $('#get-my-party').on('click', onGetMyParty)
   $('.content').on('click', '.delete', onDeleteParty)
   $('.content').on('submit', '.update-party', onUpdateParty)
 }

@@ -7,6 +7,17 @@ const getParty = () => {
     method: 'GET'
   })
 }
+
+const getMyParty = (userId) => {
+  return $.ajax({
+    url: config.apiUrl + '/myparty/' + userId,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 const createParty = formData => {
   return $.ajax({
     url: config.apiUrl + '/party',
@@ -42,5 +53,6 @@ module.exports = {
   getParty,
   createParty,
   deleteParty,
-  updateParty
+  updateParty,
+  getMyParty
 }
