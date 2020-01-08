@@ -60,12 +60,18 @@ const updateParty = () => {
 const failure = () => {
   $('.user-message').text('yikes.. something went wrong')
 }
+
+const rsvpSuccess = () => {
+  $('.user-message').text("You have RSVP'd to a party!")
+}
+
 module.exports = {
   getMyPartySuccess,
   getPartySuccess,
   createPartySuccess,
   failure,
   clearParty,
-  updateParty
+  updateParty,
   // getOneParty
+  rsvpSuccess
 }
