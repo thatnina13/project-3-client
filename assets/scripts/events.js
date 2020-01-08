@@ -1,6 +1,7 @@
 const getFormFields = require('../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const partyEvents = require('./party/events.js')
 
 const onSignUp = event => {
   event.preventDefault()
@@ -16,6 +17,7 @@ const onSignUp = event => {
 
 const onSignIn = event => {
   event.preventDefault()
+  partyEvents.onClearParty(event)
   const form = event.target
   // console.log('in events.js onSignIn form is', form)
   const formData = getFormFields(form)
@@ -37,6 +39,7 @@ const onChangePassword = event => {
 
 const onSignOut = event => {
   event.preventDefault()
+  partyEvents.onClearParty(event)
   // doesn't need formData because there is no data to submit
   // // console.log('sign out works')
   api.signOut()
