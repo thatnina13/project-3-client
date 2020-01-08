@@ -47,23 +47,12 @@ h6 {
   margin: auto;
 }
 
-.task-list {
-  padding: 10px;
+.party-log {
+  max-width: 500px;
+  border: 4px solid;
   border-color: black;
-  border-style: inset;
-  // margin-right: 300px;
-  // margin-left: 300px;
-  // margin-top: 20px;
-  // margin-bottom: 20px;
-  margin: 20px auto;
-}
-
-.btn {
-  margin: 20px;
-}
-
-.delete {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  align: center;
+  justify-content: center;
+  margin: auto;
+  padding: 10px;
 }

@@ -4,12 +4,20 @@ const store = require('../store')
 const getParty = () => {
   return $.ajax({
     url: config.apiUrl + '/party',
+    method: 'GET'
+  })
+}
+
+const getMyParty = (userId) => {
+  return $.ajax({
+    url: config.apiUrl + '/myparty/' + userId,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
     }
   })
 }
+
 const createParty = formData => {
   return $.ajax({
     url: config.apiUrl + '/party',
@@ -29,7 +37,8 @@ const deleteParty = partyId => {
     }
   })
 }
-const updateParty = (partyId, formData) => {
+
+const updateParty = (formData, partyId) => {
   return $.ajax({
     url: config.apiUrl + '/party/' + partyId,
     method: 'PATCH',
@@ -39,9 +48,11 @@ const updateParty = (partyId, formData) => {
     data: formData
   })
 }
+
 module.exports = {
   getParty,
   createParty,
   deleteParty,
-  updateParty
+  updateParty,
+  getMyParty
 }
