@@ -64,11 +64,22 @@ const createRsvp = (partyId) => {
   })
 }
 
+const getMyRsvp = (userId) => {
+  return $.ajax({
+    url: config.apiUrl + '/myrsvp/' + userId,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
   getParty,
   createParty,
   deleteParty,
   updateParty,
   getMyParty,
-  createRsvp
+  createRsvp,
+  getMyRsvp
 }
