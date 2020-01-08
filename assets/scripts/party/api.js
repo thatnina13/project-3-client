@@ -49,10 +49,26 @@ const updateParty = (formData, partyId) => {
   })
 }
 
+const createRsvp = (partyId) => {
+  return $.ajax({
+    url: config.apiUrl + '/rsvp/',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {
+      "rsvp": {
+        "party": `${partyId}`
+      }
+    }
+  })
+}
+
 module.exports = {
   getParty,
   createParty,
   deleteParty,
   updateParty,
-  getMyParty
+  getMyParty,
+  createRsvp
 }
