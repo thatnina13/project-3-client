@@ -76,22 +76,22 @@ const onRsvp = event => {
 const onGetMyRsvp = event => {
   event.preventDefault()
   console.log('Get My RSVP button works!')
-  const partyId = $(event.target).data('id')
-  console.log(partyId)
-  api.createRsvp(partyId)
+  const userId = store.user._id
+  console.log(userId)
+  api.getMyRsvp(userId)
     .then(ui.getRsvpSuccess)
     .catch(ui.failure)
 }
 
 const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
-  $('.get-party').on('click', onGetParty)
+  $('#get-party').on('click', onGetParty)
   $('#get-my-party').on('click', onGetMyParty)
   $('.content').on('click', '.delete', onDeleteParty)
   $('.content').on('submit', '.update-party', onUpdateParty)
-  $('.clear-party').on('click', onClearParty)
+  $('#clear-party').on('click', onClearParty)
   $('.content').on('click', '.rsvp-btn', onRsvp)
-  $('.content').on('click', '.get-rsvp-btn', onGetMyRsvp)
+  $('#get-rsvp-btn').on('click', onGetMyRsvp)
 }
 
 module.exports = {
