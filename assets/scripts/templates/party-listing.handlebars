@@ -17,16 +17,7 @@
         {{party.details}}
     </p>
 
-
-
-
-    <form class="update-party" data-id="{{party._id}}">
-        <input type="date" name="party[date]" placeholder="date" required>
-        <input type="text" name="party[title]" placeholder="title" required>
-        <input type="text" name="party[details]" placeholder="details" required>
-        <button class="btn btn-primary"> update your party! </button>
-    </form>
-    <btn class= "btn btn-danger btn-sm delete" data-id="{{party._id}}"> delete </btn>
+<button class="btn btn-danger rsvp-btn"> RSVP </button>
   </section>
 
 {{/each}}
