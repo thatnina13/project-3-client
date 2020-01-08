@@ -25,7 +25,7 @@ const onDeleteParty = event => {
   const partyId = $(event.target).data('id')
   console.log(partyId)
   api.deleteParty(partyId)
-    .then(function () {
+    .then(function (formData) {
       onGetParty(event)
     })
     .then($('.user-message').text('You deleted the party'))
@@ -40,8 +40,11 @@ const onUpdateParty = event => {
   const formData = getFormFields(form)
   console.log(formData, partyId)
   api.updateParty(formData, partyId)
-    .then(ui.updatePartySuccess)
-    .catch(ui.updatePartyFailure)
+    .then(ui.updateParty)
+    .then(function (formData) {
+      onGetParty(event)
+    })
+    .catch(ui.failure)
 }
 const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
