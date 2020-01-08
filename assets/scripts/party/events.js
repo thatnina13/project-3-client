@@ -14,6 +14,12 @@ const onCreateParty = event => {
     .catch(ui.createPartyFailure)
 }
 
+const onClearParty = (event) => {
+  event.preventDefault()
+  console.log('clicked clear party')
+  ui.clearParty()
+}
+
 const onGetParty = event => {
   event.preventDefault()
   api.getParty()
@@ -59,12 +65,14 @@ const onUpdateParty = event => {
 
 const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
-  $('#get-party').on('click', onGetParty)
+  $('.get-party').on('click', onGetParty)
   $('#get-my-party').on('click', onGetMyParty)
   $('.content').on('click', '.delete', onDeleteParty)
   $('.content').on('submit', '.update-party', onUpdateParty)
+  $('.clear-party').on('click', onClearParty)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onClearParty
 }
