@@ -13,7 +13,7 @@ const onCreateParty = event => {
     .catch(ui.createPartyFailure)
 }
 
-const onGetMyParty = event => {
+const onGetParty = event => {
   event.preventDefault()
   api.getParty()
     .then(ui.getMyPartySuccess)
@@ -46,9 +46,10 @@ const onUpdateParty = event => {
     })
     .catch(ui.failure)
 }
+
 const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
-  $('#get-party').on('click', onGetMyParty)
+  $('#get-party').on('click', onGetParty)
   $('.content').on('click', '.delete', onDeleteParty)
   $('.content').on('submit', '.update-party', onUpdateParty)
 }

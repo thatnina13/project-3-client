@@ -4,10 +4,7 @@ const store = require('../store')
 const getParty = () => {
   return $.ajax({
     url: config.apiUrl + '/party',
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    }
+    method: 'GET'
   })
 }
 const createParty = formData => {
