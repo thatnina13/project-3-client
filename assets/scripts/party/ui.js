@@ -2,8 +2,7 @@
 
 const getPartyTemplate = require('../templates/party-listing.handlebars')
 const getMyPartyTemplate = require('../templates/myparty-listing.handlebars')
-const getMyRsvpTemplate = require('../templates/myrsvp-listing.handlebars')
-const events = require('./events')
+const getAllPartyTemplate = require('../templates/allparty-listing.handlebars')
 
 const getMyPartySuccess = (data) => {
   console.log('get party success is working!')
@@ -25,8 +24,25 @@ const getMyPartySuccess = (data) => {
   }
 }
 
+const getAllPartySuccess = (data) => {
+  // const showPartyHtml = getPartyTemplate({ party: data.party })
+  if (data.party.length !== 0) {
+    const showAllPartyHtml = getAllPartyTemplate({ party: data.party })
+    //    console.log('party is not empty')
+    $('.content').html(showAllPartyHtml)
+    $('.get-party').show()
+    $('.content').show()
+    $('.clear-party').show()
+  } else if (data.party.length < 1) {
+    // console.log('party is empty')
+    $('.user-message').text('No recorded party, please enter a party!')
+    $('.content').hide()
+    $('.clear-party').hide()
+    $('.get-party').show()
+  }
+}
+
 const getPartySuccess = (data) => {
-  console.log(events)
   console.log('get party success is working!')
   console.log('data is:', data)
   $('.clear-party').show()
@@ -64,23 +80,10 @@ const updateParty = () => {
 
 const rsvpSuccess = () => {
   $('.user-message').text("You have RSVP'd to a party!")
-  // $('.rsvp-btn').hide()
 }
 
 const failure = () => {
   $('.user-message').text('yikes.. something went wrong')
-}
-
-const rsvpFailure = () => {
-  $('.rsvp-message').text('Please sign in to rsvp for a party!')
-  console.log('got to rsvp failure')
-}
-
-const getRsvpSuccess = data => {
-  console.log('test')
-  const showMyRsvpHtml = getMyRsvpTemplate({ rsvps: data.rsvps })
-  console.log(showMyRsvpHtml)
-  $('.content').html(showMyRsvpHtml)
 }
 module.exports = {
   getMyPartySuccess,
@@ -90,7 +93,6 @@ module.exports = {
   clearParty,
   updateParty,
   rsvpSuccess,
-  getRsvpSuccess,
-  rsvpFailure
+  getAllPartySuccess
   // getOneParty
 }
