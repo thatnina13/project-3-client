@@ -63,9 +63,9 @@ const createRsvp = (partyId) => {
   })
 }
 
-const getMyRsvp = (userId) => {
+const getMyRsvp = () => {
   return $.ajax({
-    url: config.apiUrl + '/myrsvp/' + userId,
+    url: config.apiUrl + '/myrsvp',
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
