@@ -1,12 +1,9 @@
 {{#each party as |party|}}
   <section data-id="{{party._id}}" class="party-log" >
-    <h4>
-      {{party._id}}
-    </h4>
     <h6>Date:</h6>
-    <h4>
+    <p>
       {{party.date}}
-    </h4>
+    <p>
     <h6>Title:</h6>
     <p>
         {{party.title}}
@@ -15,8 +12,6 @@
     <p>
         {{party.details}}
     </p>
-
-<button class="btn btn-danger rsvp-btn"> RSVP </button>
   </section>
 
 {{/each}}

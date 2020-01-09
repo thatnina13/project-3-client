@@ -8,6 +8,13 @@ const getParty = () => {
   })
 }
 
+const getAllParty = () => {
+  return $.ajax({
+    url: config.apiUrl + '/party',
+    method: 'GET'
+  })
+}
+
 // const getMyParty = (userId) => {
 //   return $.ajax({
 //     url: config.apiUrl + '/myparty/' + userId,
@@ -63,9 +70,9 @@ const createRsvp = (partyId) => {
   })
 }
 
-const getMyRsvp = () => {
+const getMyRsvp = (userId) => {
   return $.ajax({
-    url: config.apiUrl + '/myrsvp',
+    url: config.apiUrl + '/myrsvp/' + userId,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -79,6 +86,7 @@ module.exports = {
   deleteParty,
   updateParty,
   createRsvp,
-  getMyRsvp
+  getMyRsvp,
+  getAllParty
   // getMyParty
 }

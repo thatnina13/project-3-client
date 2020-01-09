@@ -3,7 +3,6 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
 const showMyPartyTemplate = require('../templates/myparty-listing.handlebars')
-const getPartyTemplate = require('../templates/party-listing.handlebars')
 
 const onCreateParty = event => {
   event.preventDefault()
@@ -24,31 +23,15 @@ const onClearParty = (event) => {
 
 const onGetParty = event => {
   event.preventDefault()
-  api.getParty()
-    .then(function (data) {
-      $('.clear-party').show()
-      // const showPartyHtml = getPartyTemplate({ party: data.party })
-      if (data.party.length !== 0) {
-        const showPartyHtml = getPartyTemplate({ party: data.party })
-        //    console.log('party is not empty')
-        $('.content').html(showPartyHtml)
-        $('.get-party').hide()
-        $('.content').show()
-        rsvp.forEach(rsvpId => {
-          console.log(rsvpId)
-          if ($(`[data-id = "${rsvpId}"]`)) {
-            console.log('TEST')
-            $(`button[data-id = "${rsvpId}"]`).addClass('hide')
-          }
-        })
-      } else if (data.party.length < 1) {
-        // console.log('party is empty')
-        $('.user-message').text('No recorded party, please enter a party!')
-        $('.content').hide()
-        $('.clear-party').show()
-        $('.get-party').hide()
-      }
-    })
+  api.getAllParty()
+    .then(ui.getPartySuccess)
+    .catch(ui.getPartyFailure)
+}
+
+const onGetAllParty = event => {
+  event.preventDefault()
+  api.getAllParty()
+    .then(ui.getAllPartySuccess)
     .catch(ui.getPartyFailure)
 }
 
@@ -111,29 +94,22 @@ const onUpdateParty = event => {
     })
     .catch(ui.failure)
 }
-
-const rsvp = []
 const onRsvp = event => {
   event.preventDefault()
   console.log('RSVP button works!')
   const partyId = $(event.target).data('id')
-  // addRsvp(partyId)
-  rsvp.push(partyId)
   console.log(partyId)
-  console.log(rsvp)
-  // $(event.target).addClass('hide')
   api.createRsvp(partyId)
     .then(ui.rsvpSuccess)
-    .then($(event.target).addClass('hide'))
-    .catch(ui.rsvpFailure)
+    .catch(ui.failure)
 }
 
 const onGetMyRsvp = event => {
   event.preventDefault()
   console.log('Get My RSVP button works!')
-  // const partyId = $(event.target).data('id')
-  // console.log(partyId)
-  api.getMyRsvp()
+  const partyId = $(event.target).data('id')
+  console.log(partyId)
+  api.createRsvp(partyId)
     .then(ui.getRsvpSuccess)
     .catch(ui.failure)
 }
@@ -141,16 +117,16 @@ const onGetMyRsvp = event => {
 const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
   $('.get-party').on('click', onGetParty)
+  $('#get-all-party').on('click', onGetAllParty)
   $('#get-my-party').on('click', onGetMyParty)
   $('.content').on('click', '.delete', onDeleteParty)
   $('.content').on('submit', '.update-party', onUpdateParty)
   $('.clear-party').on('click', onClearParty)
   $('.content').on('click', '.rsvp-btn', onRsvp)
-  $('.get-rsvp-btn').on('click', onGetMyRsvp)
+  $('.content').on('click', '.get-rsvp-btn', onGetMyRsvp)
 }
 
 module.exports = {
   addHandlers,
-  onClearParty,
-  rsvp
+  onClearParty
 }
