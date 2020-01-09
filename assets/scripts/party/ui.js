@@ -3,6 +3,7 @@
 const getPartyTemplate = require('../templates/party-listing.handlebars')
 const getMyPartyTemplate = require('../templates/myparty-listing.handlebars')
 const getAllPartyTemplate = require('../templates/allparty-listing.handlebars')
+const getMyRsvpTemplate = require('../templates/myrsvp-listing.handlebars')
 
 const getMyPartySuccess = (data) => {
   console.log('get party success is working!')
@@ -85,6 +86,19 @@ const rsvpSuccess = () => {
 const failure = () => {
   $('.user-message').text('yikes.. something went wrong')
 }
+
+const rsvpFailure = () => {
+  $('.rsvp-message').text('Please sign in to rsvp for a party!')
+  console.log('got to rsvp failure')
+}
+
+const getRsvpSuccess = data => {
+  console.log('test')
+  const showMyRsvpHtml = getMyRsvpTemplate({ rsvps: data.rsvps })
+  console.log(showMyRsvpHtml)
+  $('.content').html(showMyRsvpHtml)
+}
+
 module.exports = {
   getMyPartySuccess,
   getPartySuccess,
@@ -93,6 +107,8 @@ module.exports = {
   clearParty,
   updateParty,
   rsvpSuccess,
+  getRsvpSuccess,
+  rsvpFailure,
   getAllPartySuccess
   // getOneParty
 }
