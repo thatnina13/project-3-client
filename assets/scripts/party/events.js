@@ -2,6 +2,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
+const showMyPartyTemplate = require('../templates/myparty-listing.handlebars')
 
 const onCreateParty = event => {
   event.preventDefault()
@@ -29,10 +30,34 @@ const onGetParty = event => {
 
 const onGetMyParty = event => {
   event.preventDefault()
+  // show the button to clear the party
+  $('.clear-party').show()
+  // define the owner of the party
+  // define the user that is signed in
   const userId = store.user._id
-  console.log(userId)
-  api.getMyParty(userId)
-    .then(ui.getMyPartySuccess)
+  // return when equal
+  const myParty = (party) => {
+    console.log(party.user)
+    console.log(userId)
+    return party.user === userId
+  }
+
+  api.getParty()
+    .then((res) => {
+      // console.log('api is making the request. formData is', formData)
+      const results = res.party.filter(myParty)
+      return results
+    })
+    // .then(ui.getMyPartySuccess)
+    .then((results) => {
+      if (results.length !== 0) {
+        const showMyPartyHtml = showMyPartyTemplate({ party: results })
+        $('.content').html(showMyPartyHtml)
+      } else if (results.length < 1) {
+        $('.user-message').text('You do not have an event yet')
+      }
+      console.log('results  is', results)
+    })
     .catch(ui.failure)
 }
 
@@ -63,26 +88,6 @@ const onUpdateParty = event => {
     .catch(ui.failure)
 }
 
-const onRsvp = event => {
-  event.preventDefault()
-  console.log('RSVP button works!')
-  const partyId = $(event.target).data('id')
-  console.log(partyId)
-  api.createRsvp(partyId)
-    .then(ui.rsvpSuccess)
-    .catch(ui.failure)
-}
-
-const onGetMyRsvp = event => {
-  event.preventDefault()
-  console.log('Get My RSVP button works!')
-  const userId = store.user._id
-  console.log(userId)
-  api.getMyRsvp(userId)
-    .then(ui.getRsvpSuccess)
-    .catch(ui.failure)
-}
-
 const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
   $('.get-party').on('click', onGetParty)
@@ -90,8 +95,6 @@ const addHandlers = event => {
   $('.content').on('click', '.delete', onDeleteParty)
   $('.content').on('submit', '.update-party', onUpdateParty)
   $('.clear-party').on('click', onClearParty)
-  $('.content').on('click', '.rsvp-btn', onRsvp)
-  $('#get-rsvp-btn').on('click', onGetMyRsvp)
 }
 
 module.exports = {
