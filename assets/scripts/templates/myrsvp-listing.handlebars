@@ -1,13 +1,10 @@
 {{#each rsvps as |rsvp|}}
 {{log rsvp.party}}
   <section data-id="{{rsvp.party}}" class="party-log" >
-    <h4>
-      {{rsvp._id}}
-    </h4>
     <h6>Date:</h6>
-    <h4>
+    <p>
       {{rsvp.party.date}}
-    </h4>
+    </p>
     <h6>Title:</h6>
     <p>
         {{rsvp.party.title}}
@@ -16,6 +13,7 @@
     <p>
         {{rsvp.party.details}}
     </p>
+
   </section>
 
 {{/each}}
