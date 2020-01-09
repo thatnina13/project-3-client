@@ -85,11 +85,11 @@ const onGetMyRsvp = event => {
 
 const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
-  $('#get-party').on('click', onGetParty)
+  $('.get-party').on('click', onGetParty)
   $('#get-my-party').on('click', onGetMyParty)
   $('.content').on('click', '.delete', onDeleteParty)
   $('.content').on('submit', '.update-party', onUpdateParty)
-  $('#clear-party').on('click', onClearParty)
+  $('.clear-party').on('click', onClearParty)
   $('.content').on('click', '.rsvp-btn', onRsvp)
   $('#get-rsvp-btn').on('click', onGetMyRsvp)
 }
