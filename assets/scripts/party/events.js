@@ -8,9 +8,9 @@ const getPartyTemplate = require('../templates/party-listing.handlebars')
 const onCreateParty = event => {
   event.preventDefault()
   const form = event.target
-  // console.log('in events.js form is', form)
+  // //.log('in events.js form is', form)
   const formData = getFormFields(form)
-  console.log(formData)
+  //.log(formData)
   api.createParty(formData)
     .then(ui.createPartySuccess)
     .catch(ui.createPartyFailure)
@@ -18,7 +18,7 @@ const onCreateParty = event => {
 
 const onClearParty = (event) => {
   event.preventDefault()
-  console.log('clicked clear party')
+  //.log('clicked clear party')
   ui.clearParty()
 }
 
@@ -30,19 +30,19 @@ const onGetParty = event => {
       // const showPartyHtml = getPartyTemplate({ party: data.party })
       if (data.party.length !== 0) {
         const showPartyHtml = getPartyTemplate({ party: data.party })
-        //    console.log('party is not empty')
+        //    ////console.log('party is not empty')
         $('.content').html(showPartyHtml)
         $('.get-party').hide()
         $('.content').show()
         rsvp.forEach(rsvpId => {
-          console.log(rsvpId)
+          //console.log(rsvpId)
           if ($(`[data-id = "${rsvpId}"]`)) {
-            console.log('TEST')
+            //console.log('TEST')
             $(`button[data-id = "${rsvpId}"]`).addClass('hide')
           }
         })
       } else if (data.party.length < 1) {
-        // console.log('party is empty')
+        // //console.log('party is empty')
         $('.user-message').text('No recorded party, please enter a party!')
         $('.content').hide()
         $('.clear-party').show()
@@ -68,14 +68,14 @@ const onGetMyParty = event => {
   const userId = store.user._id
   // return when equal
   const myParty = (party) => {
-    console.log(party.user)
-    console.log(userId)
+    //console.log(party.user)
+    //console.log(userId)
     return party.user === userId
   }
 
   api.getParty()
     .then((res) => {
-      // console.log('api is making the request. formData is', formData)
+      // //console.log('api is making the request. formData is', formData)
       const results = res.party.filter(myParty)
       return results
     })
@@ -87,7 +87,7 @@ const onGetMyParty = event => {
       } else if (results.length < 1) {
         $('.user-message').text('You do not have an event yet')
       }
-      console.log('results  is', results)
+      //console.log('results  is', results)
     })
     .catch(ui.failure)
 }
@@ -95,7 +95,7 @@ const onGetMyParty = event => {
 const onDeleteParty = event => {
   event.preventDefault()
   const partyId = $(event.target).data('id')
-  console.log(partyId)
+  //console.log(partyId)
   api.deleteParty(partyId)
     .then(function () {
       onGetParty(event)
@@ -107,10 +107,10 @@ const onDeleteParty = event => {
 const onUpdateParty = event => {
   event.preventDefault()
   const form = event.target
-  // console.log('in events.js form is', form)
+  // //console.log('in events.js form is', form)
   const partyId = $(event.target).data('id')
   const formData = getFormFields(form)
-  console.log(formData, partyId)
+  //console.log(formData, partyId)
   api.updateParty(formData, partyId)
     .then(ui.updateParty)
     .then(function (formData) {
@@ -123,10 +123,10 @@ const rsvp = []
 
 const onRsvp = event => {
   event.preventDefault()
-  console.log('RSVP button works!')
+  //console.log('RSVP button works!')
   const partyId = $(event.target).data('id')
   rsvp.push(partyId)
-  console.log(partyId)
+  //console.log(partyId)
   api.createRsvp(partyId)
     .then(ui.rsvpSuccess)
     .then($(event.target).addClass('hide'))
@@ -135,9 +135,9 @@ const onRsvp = event => {
 
 const onGetMyRsvp = event => {
   event.preventDefault()
-  console.log('Get My RSVP button works!')
+  //console.log('Get My RSVP button works!')
   const partyId = $(event.target).data('id')
-  console.log(partyId)
+  //console.log(partyId)
   api.getMyRsvp()
     .then(ui.getRsvpSuccess)
     .catch(ui.failure)

@@ -6,12 +6,12 @@ const getAllPartyTemplate = require('../templates/allparty-listing.handlebars')
 const getMyRsvpTemplate = require('../templates/myrsvp-listing.handlebars')
 
 const getMyPartySuccess = (data) => {
-  console.log('get party success is working!')
-  console.log(data)
+  //console.log('get party success is working!')
+  //console.log(data)
   // const showPartyHtml = getPartyTemplate({ party: data.party })
   if (data.party.length !== 0) {
     const showMyPartyHtml = getMyPartyTemplate({ party: data.party })
-    //    console.log('party is not empty')
+    //    //console.log('party is not empty')
     $('.content').html(showMyPartyHtml)
     $('.get-party').show()
     $('.content').show()
@@ -35,7 +35,7 @@ const getAllPartySuccess = (data) => {
     $('.content').show()
     $('.clear-party').show()
   } else if (data.party.length < 1) {
-    // console.log('party is empty')
+    // conso//console'party is empty')
     $('.user-message').text('No recorded party, please enter a party!')
     $('.content').hide()
     $('.clear-party').hide()
@@ -44,8 +44,8 @@ const getAllPartySuccess = (data) => {
 }
 
 const getPartySuccess = (data) => {
-  console.log('get party success is working!')
-  console.log('data is:', data)
+  // console.log('get party success is working!')
+  ////console.log('data is:', data)
   $('.clear-party').show()
   // const showPartyHtml = getPartyTemplate({ party: data.party })
   if (data.party.length !== 0) {
@@ -89,13 +89,13 @@ const failure = () => {
 
 const rsvpFailure = () => {
   $('.rsvp-message').text('Please sign in to rsvp for a party!')
-  console.log('got to rsvp failure')
+  // console.log('got to rsvp failure')
 }
 
 const getRsvpSuccess = data => {
-  console.log('test')
+  // console.log('test')
   const showMyRsvpHtml = getMyRsvpTemplate({ rsvps: data.rsvps })
-  console.log(showMyRsvpHtml)
+  // console.log(showMyRsvpHtml)
   $('.content').html(showMyRsvpHtml)
 }
 
