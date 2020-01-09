@@ -15,6 +15,7 @@
         <section class="auth">
             <h1>Party On</h1>
             <p class="instructions">Welcome! </br> You can plan parties and RSVP with this web application</p>
+              <div class="rsvp-message"> </div>
           <section class="status"></section>
           <section class="before-auth">
           <h2>Sign Up</h2>
@@ -32,8 +33,9 @@
               </br>
               <button class="btn btn-primary">Sign In</button>
             </form>
+            <button class="btn btn-primary clear-party">Hide Parties</button>
+            <button class="btn btn-primary" id="get-all-party">Show all Parties</button>
           </section>
-              <button class="btn btn-primary" id="get-party">Show all Parties</button>
           <section class="after-auth">
             <h2>Change Password</h2>
             <form id="change-password">
@@ -56,7 +58,9 @@
           <button class="btn btn-primary">Create Party</button>
         </form>
         <button class="btn btn-primary" id="get-my-party">Show My Parties</button>
-        <button class="btn btn-primary" id="clear-party">Hide Parties</button>
+        <button class="btn btn-primary clear-party">Hide Parties</button>
+        <button class="btn btn-primary get-party">Get All Parties</button>
+        <button class="btn btn-primary get-rsvp-btn">Show My RSVP</button>
       </section>
       </section>
       <section class="results">

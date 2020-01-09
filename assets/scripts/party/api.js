@@ -8,15 +8,22 @@ const getParty = () => {
   })
 }
 
-const getMyParty = (userId) => {
+const getAllParty = () => {
   return $.ajax({
-    url: config.apiUrl + '/myparty/' + userId,
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    }
+    url: config.apiUrl + '/party',
+    method: 'GET'
   })
 }
+
+// const getMyParty = (userId) => {
+//   return $.ajax({
+//     url: config.apiUrl + '/myparty/' + userId,
+//     method: 'GET',
+//     headers: {
+//       Authorization: `Token token=${store.user.token}`
+//     }
+//   })
+// }
 
 const createParty = formData => {
   return $.ajax({
@@ -48,11 +55,38 @@ const updateParty = (formData, partyId) => {
     data: formData
   })
 }
+const createRsvp = (partyId) => {
+  return $.ajax({
+    url: config.apiUrl + '/rsvp/',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {
+      "rsvp": {
+        "party": `${partyId}`
+      }
+    }
+  })
+}
+
+const getMyRsvp = () => {
+  return $.ajax({
+    url: config.apiUrl + '/myrsvp',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
 
 module.exports = {
   getParty,
   createParty,
   deleteParty,
   updateParty,
-  getMyParty
+  createRsvp,
+  getMyRsvp,
+  getAllParty
+  // getMyParty
 }
