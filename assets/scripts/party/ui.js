@@ -20,7 +20,6 @@ const getMyPartySuccess = (data) => {
     // console.log('party is empty')
     $('.user-message').text('No recorded party, please enter a party!')
     $('.content').hide()
-    $('.clear-party').hide()
     $('.get-party').show()
   }
 }
@@ -38,7 +37,6 @@ const getAllPartySuccess = (data) => {
     // conso//console'party is empty')
     $('.user-message').text('No recorded party, please enter a party!')
     $('.content').hide()
-    $('.clear-party').hide()
     $('.get-party').show()
   }
 }
@@ -52,14 +50,13 @@ const getPartySuccess = (data) => {
     const showPartyHtml = getPartyTemplate({ party: data.party })
     //    console.log('party is not empty')
     $('.content').html(showPartyHtml)
-    $('.get-party').hide()
+    // $('.get-party').hide()
     $('.content').show()
   } else if (data.party.length < 1) {
     // console.log('party is empty')
     $('.user-message').text('No recorded party, please enter a party!')
     $('.content').hide()
     $('.clear-party').show()
-    $('.get-party').hide()
   }
 }
 
@@ -70,7 +67,7 @@ const createPartySuccess = (data) => {
 
 const clearParty = () => {
   $('.content').empty()
-  $('.clear-party').hide()
+  // $('.clear-party').hide()
   $('.get-party').show()
 }
 

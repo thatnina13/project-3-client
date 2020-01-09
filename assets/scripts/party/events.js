@@ -32,7 +32,7 @@ const onGetParty = event => {
         const showPartyHtml = getPartyTemplate({ party: data.party })
         //    ////console.log('party is not empty')
         $('.content').html(showPartyHtml)
-        $('.get-party').hide()
+        // $('.get-party').hide()
         $('.content').show()
         rsvp.forEach(rsvpId => {
           //console.log(rsvpId)
@@ -46,7 +46,7 @@ const onGetParty = event => {
         $('.user-message').text('No recorded party, please enter a party!')
         $('.content').hide()
         $('.clear-party').show()
-        $('.get-party').hide()
+        // $('.get-party').hide()
       }
     })
     .catch(ui.failure)
