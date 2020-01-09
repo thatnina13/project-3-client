@@ -1,5 +1,5 @@
-{{#each rsvp as |rsvp|}}
-{{log rsvp}}
+{{#each rsvps as |rsvp|}}
+{{log rsvp.party}}
   <section data-id="{{rsvp.party}}" class="party-log" >
     <h4>
       {{rsvp._id}}
@@ -16,15 +16,6 @@
     <p>
         {{rsvp.party.details}}
     </p>
-
-
-    <form class="update-party" data-id="{{rsvp.part}}">
-        <input type="date" name="party[date]" placeholder="date" required>
-        <input type="text" name="party[title]" placeholder="title" required>
-        <input type="text" name="party[details]" placeholder="details" required>
-        <button class="btn btn-primary"> update your party! </button>
-    </form>
-    <btn class= "btn btn-danger btn-sm delete" data-id="{{rsvp.party}}"> delete </btn>
   </section>
 
 {{/each}}
