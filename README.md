@@ -41,8 +41,9 @@ GET | /party/:id
 POST | /party/:id
 PATCH | /party/:id
 DELETE | /party/:id
-### EDR:
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/fMiF6i1"><a href="//imgur.com/a/fMiF6i1"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+### ERD:
+![alt text](https://imgur.com/u0NuDce "ERD")
+
 
 ### Wireframes:
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/bleTZVS" data-context="false" ><a href="//imgur.com/a/bleTZVS"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+![alt text](https://imgur.com/OHeB5LN "Wireframes")
