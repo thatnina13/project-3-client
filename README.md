@@ -41,9 +41,3 @@ GET | /party/:id
 POST | /party/:id
 PATCH | /party/:id
 DELETE | /party/:id
-### ERD:
-![alt text](https://imgur.com/u0NuDce "ERD")
-
-
-### Wireframes:
-![alt text](https://imgur.com/OHeB5LN "Wireframes")
