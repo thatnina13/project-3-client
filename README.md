@@ -42,4 +42,7 @@ POST | /party/:id
 PATCH | /party/:id
 DELETE | /party/:id
 ### EDR:
-![alt text](https://docs.google.com/presentation/d/1qWc08Xp778L5sfVBtAXr9fLWCSjH-_1p8DvyQySumXM/edit?usp=sharing)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/fMiF6i1"><a href="//imgur.com/a/fMiF6i1"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+### Wireframes:
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/bleTZVS" data-context="false" ><a href="//imgur.com/a/bleTZVS"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
