@@ -41,6 +41,5 @@ GET | /party/:id
 POST | /party/:id
 PATCH | /party/:id
 DELETE | /party/:id
-### Wireframes and EDR:
-Wireframes: https://docs.google.com/presentation/d/1V86-8P7a3TgGHZG_XzUOQaKszhKxubzVSAv47DDNn-A/edit?usp=sharing
-ERD: https://docs.google.com/presentation/d/1qWc08Xp778L5sfVBtAXr9fLWCSjH-_1p8DvyQySumXM/edit?usp=sharing
+### EDR:
+![alt text](https://docs.google.com/presentation/d/1qWc08Xp778L5sfVBtAXr9fLWCSjH-_1p8DvyQySumXM/edit?usp=sharing "Logo Title Text 1")
