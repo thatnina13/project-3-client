@@ -16,9 +16,10 @@ const getMyPartySuccess = (data) => {
     $('.get-party').show()
     $('.content').show()
     $('.clear-party').show()
+    $('.status').text('Parties are below!')
   } else if (data.party.length < 1) {
     // console.log('party is empty')
-    $('.user-message').text('No recorded party, please enter a party!')
+    $('.status').text('No recorded party, please enter a party!')
     $('.content').hide()
     $('.get-party').show()
   }
@@ -33,9 +34,10 @@ const getAllPartySuccess = (data) => {
     $('.get-party').show()
     $('.content').show()
     $('.clear-party').show()
+    $('.status').text('Parties are below!')
   } else if (data.party.length < 1) {
     // conso//console'party is empty')
-    $('.user-message').text('No recorded party, please enter a party!')
+    $('.status').text('No recorded party, please enter a party!')
     $('.content').hide()
     $('.get-party').show()
   }
@@ -52,16 +54,17 @@ const getPartySuccess = (data) => {
     $('.content').html(showPartyHtml)
     // $('.get-party').hide()
     $('.content').show()
+    $('.status').text('Parties are below!')
   } else if (data.party.length < 1) {
     // console.log('party is empty')
-    $('.user-message').text('No recorded party, please enter a party!')
+    $('.status').text('No recorded party, please enter a party!')
     $('.content').hide()
     $('.clear-party').show()
   }
 }
 
 const createPartySuccess = (data) => {
-  $('.user-message').text('you logged your party')
+  $('.status').text('you logged your party')
   $('form').trigger('reset')
 }
 
@@ -69,24 +72,30 @@ const clearParty = () => {
   $('.content').empty()
   // $('.clear-party').hide()
   $('.get-party').show()
+  $('.status').text('Parties are hidden')
 }
 
 const updateParty = () => {
   $('form').trigger('reset')
-  $('.user-message').text('you updated your party')
+  $('.status').text('you updated your party')
+  $('.user-message').show().text('You updated the party').fadeOut(3000)
 }
 
 const rsvpSuccess = () => {
-  $('.user-message').text("You have RSVP'd to a party!")
+  $('.status').text("You have RSVP'd to a party!")
 }
 
 const failure = () => {
-  $('.user-message').text('yikes.. something went wrong')
+  $('.status').text('yikes.. something went wrong')
 }
 
 const rsvpFailure = () => {
-  $('.rsvp-message').text('Please sign in to rsvp for a party!')
+  $('.status').text('Please sign in to rsvp for a party!')
   // console.log('got to rsvp failure')
+}
+
+const showPartySuccess = () => {
+  $('.status').text('Parties are below!')
 }
 
 const getRsvpSuccess = data => {
@@ -94,6 +103,7 @@ const getRsvpSuccess = data => {
   const showMyRsvpHtml = getMyRsvpTemplate({ rsvps: data.rsvps })
   // console.log(showMyRsvpHtml)
   $('.content').html(showMyRsvpHtml)
+  $('.status').text('RSVPs are below!')
 }
 
 module.exports = {
@@ -106,6 +116,7 @@ module.exports = {
   rsvpSuccess,
   getRsvpSuccess,
   rsvpFailure,
-  getAllPartySuccess
+  getAllPartySuccess,
+  showPartySuccess
   // getOneParty
 }
