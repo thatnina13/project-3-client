@@ -78,6 +78,7 @@ const clearParty = () => {
 const updateParty = () => {
   $('form').trigger('reset')
   $('.status').text('you updated your party')
+  $('.user-message').show().text('You updated the party').fadeOut(3000)
 }
 
 const rsvpSuccess = () => {
