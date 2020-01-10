@@ -13,7 +13,7 @@ const onCreateParty = event => {
   //.log(formData)
   api.createParty(formData)
     .then(ui.createPartySuccess)
-    .catch(ui.createPartyFailure)
+    .catch(ui.failure)
 }
 
 const onClearParty = (event) => {
@@ -30,6 +30,7 @@ const onGetParty = event => {
       // const showPartyHtml = getPartyTemplate({ party: data.party })
       if (data.party.length !== 0) {
         const showPartyHtml = getPartyTemplate({ party: data.party })
+        $('.status').text('Parties are below!')
         //    ////console.log('party is not empty')
         $('.content').html(showPartyHtml)
         // $('.get-party').hide()
@@ -43,7 +44,7 @@ const onGetParty = event => {
         })
       } else if (data.party.length < 1) {
         // //console.log('party is empty')
-        $('.user-message').text('No recorded party, please enter a party!')
+        $('.status').text('No recorded party, please enter a party!')
         $('.content').hide()
         $('.clear-party').show()
         // $('.get-party').hide()
@@ -56,7 +57,7 @@ const onGetAllParty = event => {
   event.preventDefault()
   api.getAllParty()
     .then(ui.getAllPartySuccess)
-    .catch(ui.getPartyFailure)
+    .catch(ui.failure)
 }
 
 const onGetMyParty = event => {
@@ -84,8 +85,9 @@ const onGetMyParty = event => {
       if (results.length !== 0) {
         const showMyPartyHtml = showMyPartyTemplate({ party: results })
         $('.content').html(showMyPartyHtml)
+        $('.status').text('Parties are below!')
       } else if (results.length < 1) {
-        $('.user-message').text('You do not have an event yet')
+        $('.status').text('You do not have an event yet')
       }
       //console.log('results  is', results)
     })
@@ -100,8 +102,8 @@ const onDeleteParty = event => {
     .then(function () {
       onGetParty(event)
     })
-    .then($('.user-message').text('You deleted the party'))
-    .catch(ui.deletePartyFailure)
+    .then($('.user-message').show().text('You deleted the party').fadeOut(3000))
+    .catch(ui.failure)
 }
 
 const onUpdateParty = event => {
@@ -147,7 +149,7 @@ const addHandlers = event => {
   $('#create-party').on('submit', onCreateParty)
   $('.get-party').on('click', onGetParty)
   $('#get-all-party').on('click', onGetAllParty)
-  $('#get-my-party').on('click', onGetMyParty)
+  $('.get-my-party').on('click', onGetMyParty)
   $('.content').on('click', '.delete', onDeleteParty)
   $('.content').on('submit', '.update-party', onUpdateParty)
   $('.clear-party').on('click', onClearParty)
