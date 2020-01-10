@@ -20,6 +20,9 @@ As a signed in user in a room, I would like to see all messages in the chat room
 As a signed in user in a room, I would like to send my own messages to the chat room.
 As a signed in user in a room, I would like to update my own messages to the chat room.
 As a signed in user in a room, I would like to delete my own messages to the chat room.
+### Unsolved Problems & Future Goals
+Along side of additional styling for a bettered user experience, Party On has one unsolved problem. Our delete function is, at present, deleting the owner key but not the user key. This bug allows a user to update the owner of an RSVP or Party. 
+Additionally, future iterations of Party On will ideally notify party owners when an RSVP is submitted for a party. 
 ### Technologies Used
 - jQuery
 - HTML/CSS
@@ -40,4 +43,4 @@ PATCH | /party/:id
 DELETE | /party/:id
 ### Wireframes and EDR:
 Wireframes: https://docs.google.com/presentation/d/1V86-8P7a3TgGHZG_XzUOQaKszhKxubzVSAv47DDNn-A/edit?usp=sharing
-EDR: https://docs.google.com/presentation/d/1qWc08Xp778L5sfVBtAXr9fLWCSjH-_1p8DvyQySumXM/edit?usp=sharing
+ERD: https://docs.google.com/presentation/d/1qWc08Xp778L5sfVBtAXr9fLWCSjH-_1p8DvyQySumXM/edit?usp=sharing
