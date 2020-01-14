@@ -8,9 +8,22 @@ const getParty = () => {
   })
 }
 
+const getFlamingo = () => {
+  return $.ajax({
+    url: config.apiUrl + '/flamingo',
+    method: 'GET'
+  })
+}
+
 const getAllParty = () => {
   return $.ajax({
     url: config.apiUrl + '/party',
+    method: 'GET'
+  })
+}
+const getAllFlamingo = () => {
+  return $.ajax({
+    url: config.apiUrl + '/flamingo',
     method: 'GET'
   })
 }
@@ -35,9 +48,28 @@ const createParty = formData => {
     data: formData
   })
 }
+const createFlamingo = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/flamingo',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: formData
+  })
+}
 const deleteParty = partyId => {
   return $.ajax({
     url: config.apiUrl + '/party/' + partyId,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+const deleteFlamingo = flamingoId => {
+  return $.ajax({
+    url: config.apiUrl + '/flamingo/' + flamingoId,
     method: 'DELETE',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -48,6 +80,16 @@ const deleteParty = partyId => {
 const updateParty = (formData, partyId) => {
   return $.ajax({
     url: config.apiUrl + '/party/' + partyId,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: formData
+  })
+}
+const updateFlamingo = (formData, flamingoId) => {
+  return $.ajax({
+    url: config.apiUrl + '/flamingo/' + flamingoId,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -87,6 +129,10 @@ module.exports = {
   updateParty,
   createRsvp,
   getMyRsvp,
-  getAllParty
-  // getMyParty
+  getAllParty,
+  getFlamingo,
+  getAllFlamingo,
+  createFlamingo,
+  deleteFlamingo,
+  updateFlamingo
 }

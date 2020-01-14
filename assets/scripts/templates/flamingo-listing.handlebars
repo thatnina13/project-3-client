@@ -1,0 +1,14 @@
+{{#each flamingo as |flamingo|}}
+  <section data-id="{{flamingo._id}}" class="flamingo-log" >
+    <h6>Name:</h6>
+    <p>
+        {{flamingo.name}}
+    </p>
+    <h6>Talent:</h6>
+    <p>
+        {{flamingo.talent}}
+    </p>
+    <!-- <button data-id="{{flamingo._id}}" class="btn btn-danger rsvp-btn"> RSVP </button> -->
+    </section>
+
+  {{/each}}
