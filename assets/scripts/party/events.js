@@ -190,7 +190,7 @@ const onDeleteParty = event => {
 const onDeleteFlamingo = event => {
   event.preventDefault()
   const flamingoId = $(event.target).data('id')
-  // console.log(partyId)
+  console.log(flamingoId)
   api.deleteFlamingo(flamingoId)
     .then(function () {
       onGetFlamingo(event)
