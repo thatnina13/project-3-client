@@ -105,8 +105,8 @@ const createRsvp = (partyId) => {
       Authorization: `Token token=${store.user.token}`
     },
     data: {
-      "rsvp": {
-        "party": `${partyId}`
+      'rsvp': {
+        'party': `${partyId}`
       }
     }
   })

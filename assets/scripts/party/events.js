@@ -12,7 +12,7 @@ const onCreateParty = event => {
   const form = event.target
   // //.log('in events.js form is', form)
   const formData = getFormFields(form)
-  //.log(formData)
+  // .log(formData)
   api.createParty(formData)
     .then(ui.createPartySuccess)
     .catch(ui.failure)
@@ -23,7 +23,7 @@ const onCreateFlamingo = event => {
   const form = event.target
   // //.log('in events.js form is', form)
   const formData = getFormFields(form)
-  //.log(formData)
+  // .log(formData)
   api.createFlamingo(formData)
     .then(ui.createFlamingoSuccess)
     .catch(ui.failure)
@@ -31,12 +31,12 @@ const onCreateFlamingo = event => {
 
 const onClearParty = (event) => {
   event.preventDefault()
-  //.log('clicked clear party')
+  // .log('clicked clear party')
   ui.clearParty()
 }
 const onClearFlamingo = (event) => {
   event.preventDefault()
-  //.log('clicked clear party')
+  // .log('clicked clear party')
   ui.clearFlamingo()
 }
 
@@ -118,8 +118,8 @@ const onGetMyParty = event => {
   const userId = store.user._id
   // return when equal
   const myParty = (party) => {
-    //console.log(party.user)
-    //console.log(userId)
+    // console.log(party.user)
+    // console.log(userId)
     return party.user === userId
   }
 
@@ -138,7 +138,7 @@ const onGetMyParty = event => {
       } else if (results.length < 1) {
         $('.status').text('You do not have an event yet')
       }
-      //console.log('results  is', results)
+      // console.log('results  is', results)
     })
     .catch(ui.failure)
 }
@@ -152,8 +152,8 @@ const onGetMyFlamingo = event => {
   const userId = store.user._id
   // return when equal
   const myFlamingo = (flamingo) => {
-    //console.log(party.user)
-    //console.log(userId)
+    // console.log(party.user)
+    // console.log(userId)
     return flamingo.user === userId
   }
 
@@ -172,14 +172,14 @@ const onGetMyFlamingo = event => {
       } else if (results.length < 1) {
         $('.status').text('You do not have a flamingo yet')
       }
-      //console.log('results  is', results)
+      // console.log('results  is', results)
     })
     .catch(ui.failure)
 }
 const onDeleteParty = event => {
   event.preventDefault()
   const partyId = $(event.target).data('id')
-  //console.log(partyId)
+  // console.log(partyId)
   api.deleteParty(partyId)
     .then(function () {
       onGetParty(event)
@@ -190,7 +190,7 @@ const onDeleteParty = event => {
 const onDeleteFlamingo = event => {
   event.preventDefault()
   const flamingoId = $(event.target).data('id')
-  //console.log(partyId)
+  // console.log(partyId)
   api.deleteFlamingo(flamingoId)
     .then(function () {
       onGetFlamingo(event)
@@ -205,7 +205,7 @@ const onUpdateParty = event => {
   // //console.log('in events.js form is', form)
   const partyId = $(event.target).data('id')
   const formData = getFormFields(form)
-  //console.log(formData, partyId)
+  // console.log(formData, partyId)
   api.updateParty(formData, partyId)
     .then(ui.updateParty)
     .then(function (formData) {
@@ -219,7 +219,7 @@ const onUpdateFlamingo = event => {
   // //console.log('in events.js form is', form)
   const flamingoId = $(event.target).data('id')
   const formData = getFormFields(form)
-  //console.log(formData, partyId)
+  // console.log(formData, partyId)
   api.updateFlamingo(formData, flamingoId)
     .then(ui.updateFlamingo)
     .then(function (formData) {
@@ -232,10 +232,10 @@ const rsvp = []
 
 const onRsvp = event => {
   event.preventDefault()
-  //console.log('RSVP button works!')
+  // console.log('RSVP button works!')
   const partyId = $(event.target).data('id')
   rsvp.push(partyId)
-  //console.log(partyId)
+  // console.log(partyId)
   api.createRsvp(partyId)
     .then(ui.rsvpSuccess)
     .then($(event.target).addClass('hide'))
@@ -244,9 +244,9 @@ const onRsvp = event => {
 
 const onGetMyRsvp = event => {
   event.preventDefault()
-  //console.log('Get My RSVP button works!')
+  // console.log('Get My RSVP button works!')
   const partyId = $(event.target).data('id')
-  //console.log(partyId)
+  // console.log(partyId)
   api.getMyRsvp()
     .then(ui.getRsvpSuccess)
     .catch(ui.failure)
