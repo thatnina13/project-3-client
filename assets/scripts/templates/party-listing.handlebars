@@ -1,9 +1,13 @@
 {{#each party as |party|}}
   <section data-id="{{party._id}}" class="party-log" >
-    <h6>Date:</h6>
-    <p>
-      {{limit party.date 10}}
-    </p>
+      <div class="card-deck">
+          <div class="card" style="width:600px">
+            <img class="card-img-top" src="https://wallpapercave.com/wp/wp1924290.jpg" alt="Card image">
+              <div class="card-body">
+                  <h6>Date:</h6>
+                    <p>
+                  {{limit party.date 10}}
+                    </p>
     <h6>Title:</h6>
     <p>
         {{party.title}}
@@ -14,6 +18,14 @@
     </p>
 
     <button data-id="{{party._id}}" class="btn btn-danger rsvp-btn"> RSVP </button>
+    <div class="emoji-toggle emoji-vote">
+      <input type="checkbox" id="toggle4" class="toggle">
+      <div class="emoji"></div>
+      <label for="toggle4" class="well"></label>
+    </div>
+    </div>
+    </div>
+    </div>
     </section>
 
   {{/each}}
