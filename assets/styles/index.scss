@@ -1,15 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
 
-body {
-  text-align: center;
-  padding: 20px;
-  font-family: 'Noto Sans JP', sans-serif;
+
+  body {
+  // font-family: 'Parisienne', cursive;
+// font-family: 'Abril Fatface', cursive;
+  // font-family: 'Lora', serif;
+  background-image: url('https://i.pinimg.com/originals/b7/27/e4/b727e435e9b7fd560b14bd33269e77b7.jpg');
+}
+.body {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  background-color: white;
+  justify-content: center;
 }
 .task {
   height: auto;
   width: auto;
   padding: 10px;
-  border-color: black;
+  border-color: pink;
   border-style: inset;
   margin-top: 20px;
   margin-bottom: 50px;
@@ -35,8 +45,6 @@ h6 {
 .before-auth {
   padding: 30px;
   padding-bottom: 30px;
-  border-color: black;
-  border-style: inset;
   // margin-right: 400px;
   // margin-left: 400px;
   margin: auto;
@@ -45,8 +53,6 @@ h6 {
 .after-auth {
   padding: 30px;
   padding-bottom: 30px;
-  border-color: black;
-  border-style: inset;
   // margin-right: 400px;
   // margin-left: 400px;
   margin: auto;

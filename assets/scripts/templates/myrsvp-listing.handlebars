@@ -1,5 +1,9 @@
 {{#each rsvps as |rsvp|}}
   <section data-id="{{rsvp.party}}" class="party-log" >
+    <div class="card-deck">
+        <div class="card" style="width:600px">
+          <img class="card-img-top" src="https://media.giphy.com/media/3owzW9EZI8M3sz9s5O/giphy.gif" alt="Card image">
+          <div class="card-body">
     <h6>Date:</h6>
     <p>
       {{rsvp.party.date}}
@@ -12,6 +16,9 @@
     <p>
         {{rsvp.party.details}}
     </p>
+  </div>
+</div>
+</div>
   </section>
 
 {{/each}}
