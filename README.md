@@ -27,15 +27,15 @@ As a signed in user, I would like to delete my own flamingo.
 As a signed in user, I would like to see all flamingos.
 
 ### Party on ERD
-![Party On](https://imgur.com/NoBQbS5)
+![](https://imgur.com/NoBQbS5)
 ### Party on Wire Frames V2- Flamingos
-![Party On](https://imgur.com/LnidV9s)
+![](https://imgur.com/LnidV9s)
 ### Unsolved Problems & Future Goals
 Future goals for Party On
 
 I would like to create and store two different arrays- the first of images realting to partying, the second relating to flamingos. From there I would like to create some functionality so that any time a user clicked "show my flock," "Get all Flamingos", "Show my parties" or "Get all Parties" an image from either arry would be randomly selected to fill the image element of the bootstrap card. This would be a first step to stylize the app furhter until we could reach the ideal end state: allowing a user to upload an image to their party or flamingo. The image would be store and would be represented when that party (or flamingo) was retrieved later.
 
-Additionally, I would like to make the emoji toggle actually functional! Ideally the toggle will be used to RSVP to parties. I'm not exactly sure how it could be made functional for the flamingo's. That said, I can never resist a good pile of 💩 :poop:. I realized that in order to have a RSVP toggle, it would actually need to have three positions or values. In my head it will work something like this: left: RSVP true, middle:RSVP nutrual, right: RSVP false.
+Additionally, I would like to make the emoji toggle actually functional! Ideally the toggle will be used to RSVP to parties. I'm not exactly sure how it could be made functional for the flamingo's. That said, I can never resist a good pile of 💩. I realized that in order to have a RSVP toggle, it would actually need to have three positions or values. In my head it will work something like this: left: RSVP true, middle:RSVP nutrual, right: RSVP false.
 
 Finally, I would like to change the display for Show all Parties and Get all Flamingos. Right now, the data is displayed in cards and all cards recieve the same image.  Ideally, any data- parties or flamingos, created and owned by the user will have the same image assigned to the card when "show my parties" or "show my flock" is run.
 ### Technologies Used
