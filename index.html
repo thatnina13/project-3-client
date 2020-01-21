@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Party On</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <section class="auth">
+          <div class="bg"></div>
+            <h1>Party On</h1>
+            <p class="instructions">Party on my Feathered Friends! </br> You can plan parties, build your flock and RSVP with this web application</p>
+              <div class="rsvp-message"> </div>
+          <section class="status"></section>
+          <section class="before-auth">
+          <h2>Sign Up</h2>
+            <form id="sign-up">
+              <input type="email" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmamtion">
+              </br>
+              <button class="btn btn-primary">Sign Up</button>
+            </form>
+          <h2>Sign In</h2>
+            <form id="sign-in">
+              <input type="email" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              </br>
+              <button class="btn btn-primary">Sign In</button>
+            </form>
+            <button class="btn btn-primary clear-party">Hide Parties</button>
+            <button class="btn btn-primary get-all-party" id="get-all-party">Show all Parties</button>
+          </section>
+          <section class="after-auth">
+            <h2>Change Password</h2>
+            <form id="change-password">
+              <input type="password" name="passwords[old]" placeholder="Old Password">
+              <input type="password" name="passwords[new]" placeholder="New Password">
+              </br>
+              <button class="btn btn-primary">Change Password</button>
+            </form>
+          <form id="sign-out">
+            <button class="btn btn-danger">Sign out</button>
+          </form>
+        </section>
+      <section class="task-list">
+        <div class="user-message"> </div>
+        <h2>Parties</h2>
+        <form id="create-party">
+          <input placeholder="Party Title" name="party[title]" type="text">
+          <input placeholder="Party Details" name="party[details]" type="text">
+          <input placeholder="Date!" name="party[date]" type="date">
+          <button class="btn btn-primary">Create Party</button>
+        </form>
+        <button class="btn btn-primary get-my-party" id="get-my-party">Show My Parties</button>
+        <button class="btn btn-primary clear-party">Hide Parties</button>
+        <button class="btn btn-primary get-party">Get All Parties</button>
+        <button class="btn btn-primary get-rsvp-btn">Show My RSVP</button>
+        <h2>Flamingos</h2>
+          <form id="create-flamingo">
+          <input placeholder="Flamingo Name" name="flamingo[name]" type="text">
+          <input placeholder="Flamingo Talent" name="flamingo[talent]" type="text">
+          <button class="btn btn-primary">Create Flamingo</button>
+          </form>
+        <button class="btn btn-primary get-my-flamingo" id="get-my-flamingo">Show My Flock</button>
+        <button class="btn btn-primary clear-flamingo">Hide my winged friends</button>
+        <button class="btn btn-primary get-flamingo">Get All Flamingos</button>
+      </section>
+      </section>
+      <section class="results">
+      </section>
+      <div class="content"> </div>
+    </body>
+</html>
